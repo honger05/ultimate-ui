@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>首页</title>
+  <%= require('html!tmpl/inc-meta.html') %>
+</head>
+
+<body>
+
+  <swiper :list="swiperList"></swiper>
+
+  <search @result-click="resultClick"
+    @on-change="getResult"
+    :results="searchResults"
+    :value.sync="searchVal">
+  </search>
+
+  <group title="haha">
+    <switch title="popup" :value.sync="showPopup"></switch>
+    <switch title="alert" :value.sync="showAlert"></switch>
+    <switch title="confirm" :value.sync="showConfirm"></switch>
+    <switch title="loading" :value.sync="showLoading"></switch>
+    <switch title="toast" :value.sync="showToast"></switch>
+    <cell title="picker">{{pickerYearVal | json}}</cell>
+    <cell title="Spinner"><spinner type="android"></spinner></cell>
+    <popup-picker title="PopupPicker" :data="areaData" :columns="3" :value.sync="popupPickerVal"></popup-picker>
+    <address title="Address"></address>
+  </group>
+
+  <progress :template="2"></progress>
+
+  <flex>
+    <flex-item>1</flex-item>
+    <flex-item>2</flex-item>
+  </flex>
+
+  <picker :data="areaData" :columns="3" :value.sync="pickerYearVal" @on-change="onPickerChange"></picker>
+
+  <popup :show.sync="showPopup">
+    <div>popup</div>
+    <div>popup</div>
+    <div>popup</div>
+  </popup>
+
+  <loading :show.sync="showLoading"></loading>
+
+  <toast :show.sync="showToast" type="text" text="Hello World">默认提示</toast>
+
+  <alert :show.sync="showAlert">确保在安全的地方进行操作</alert>
+
+  <confirm :show.sync="showConfirm"
+    confirm-text="ok"
+    cancel-text="cancel"
+    @on-confirm="onConfirm">
+    <p style="text-align:center;">你确定要删除吗?</p>
+  </confirm>
+
+  <%= require('html!tmpl/inc-footer.html') %>
+</body>
+
+</html>

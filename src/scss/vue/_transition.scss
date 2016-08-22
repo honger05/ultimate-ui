@@ -1,0 +1,97 @@
+@import "~animate/animate.scss";
+
+/**
+ * views transition based on animate.css
+ */
+.views-transition {
+  animation-duration: 1s;
+  animation-fill-mode: both;
+}
+
+.views-enter {
+  height: 100%;
+  overflow: hidden;
+  @include fadeInDown(
+    $duration: 0.6s,
+    $delay: 0
+  );
+}
+
+.views-leave {
+  height: 100%;
+  overflow: hidden;
+  @include fadeOutUp(
+    $duration: 0.6s,
+    $delay: 0
+  );
+}
+
+/**
+ * fade transition
+ */
+.ci-fade-transition {
+  opacity: 1;
+  transition: opacity linear 0.2s
+}
+
+.ci-fade-enter, .ci-fade-leave {
+  opacity: 0;
+}
+
+.ci-dialog-transition {
+  opacity: 1;
+  transition-duration: .4s;
+  transform: translate(-50%, -50%) scale(1)!important;
+  transition-property: transform, opacity!important;
+}
+
+.ci-dialog-enter, .ci-dialog-leave {
+  opacity: 0;
+}
+
+.ci-dialog-enter {
+  transform: translate(-50%, -50%) scale(1.185)!important;
+}
+
+.ci-dialog-leave {
+  transform: translate(-50%, -50%) scale(1)!important;
+}
+
+.ci-popup {
+  border-top: 2px solid #04BE02;
+}
+.ci-popup-dialog {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background: #eee;
+  z-index: 101;
+  transition-property: transform;
+  transition-duration: 300ms;
+}
+.ci-popup-mask {
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  tap-highlight-color: rgba(0,0,0,0);
+  z-index: -1;
+}
+.ci-popup-mask.ci-popup-show {
+  opacity: 1;
+  z-index: 100;
+  transition: opacity 0.3s;
+}
+.ci-popup-transiton {}
+.ci-popup-enter {
+  background-color:red;
+  transform: translate3d(0, 100%, 0);
+}
+.ci-popup-leave {
+  transform: translate3d(0, 100%, 0);
+}

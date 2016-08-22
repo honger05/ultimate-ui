@@ -1,0 +1,91 @@
+
+a {
+  color: $txt-link;
+}
+em {
+  color: $txt-highlight;
+}
+::-webkit-input-placeholder {
+  color: $txt-muted;
+}
+
+h1 {
+  font-size: $font-size-h1;
+}
+h2 {
+  font-size: $font-size-title-lg;
+}
+h3,h4 {
+  font-size: $font-size-title;
+}
+h5,.ci-txt-sub {
+  font-size: $font-size-sub;
+}
+h6,.ci-txt-tips{
+  font-size: $font-size-tips;
+}
+.ci-txt-default{
+  color: $txt-default;
+}
+.ci-txt-white{
+  color: white;
+}
+.ci-txt-info{
+  color: $txt-info;
+}
+.ci-txt-muted{
+  color: $txt-muted;
+}
+.ci-txt-warning,.ci-txt-red{
+  color: $txt-warning;
+}
+.ci-txt-feeds{
+  color: $txt-feeds;
+}
+.ci-txt-highlight{
+  color: $txt-highlight;
+}
+.ci-txt-justify{
+  text-align: justify;
+}
+.ci-txt-justify-one{
+  text-align: justify;
+  overflow: hidden;
+  height: 24px;
+}
+.ci-txt-justify-one:after{
+  display:inline-block;
+  content:'';
+  overflow:hidden;
+  width:100%;
+  height:0;
+}
+
+@mixin queryWidth( $min , $max ){
+  @if $min == -1{
+    @media screen and ( max-width: $max+px ) {
+      html{
+        font-size: ( ($max+1) / 375 ) * 100px;
+      }
+    }
+  } @else if $max == -1{
+    @media screen and ( min-width: $min+px ) {
+      html{
+        font-size: ( $min / 375 ) * 100px;
+      }
+    }
+  } @else{
+    @media screen and ( min-width: $min+px ) and ( max-width: $max+px ) {
+      html{
+        font-size: ( $min / 375 ) * 100px;
+      }
+    }
+  }
+}
+@include queryWidth(-1,319);
+@include queryWidth(320,359);
+@include queryWidth(360,374);
+@include queryWidth(375,383);
+@include queryWidth(384,399);
+@include queryWidth(400,413);
+@include queryWidth(414,-1);

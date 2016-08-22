@@ -1,0 +1,78 @@
+@import "./_font";
+[class*=" ci-icon-"]:before,
+[class^="ci-icon-"]:before {
+  margin: 0;
+}
+:before {
+  .ci-icon-success & {
+    font-size: 23px;
+    color: #09BB07;
+  }
+  .ci-icon-waiting & {
+    font-size: 23px;
+    color: #10AEFF;
+  }
+  .ci-icon-warn & {
+    font-size: 23px;
+    color: #F43530;
+  }
+  .ci-icon-info & {
+    font-size: 23px;
+    color: #10AEFF;
+  }
+  .ci-icon-success-circle & {
+    font-size: 23px;
+    color: #09BB07;
+  }
+  .ci-icon-success-no-circle & {
+    font-size: 23px;
+    color: #09BB07;
+  }
+  .ci-icon-waiting-circle & {
+    font-size: 23px;
+    color: #10AEFF;
+  }
+  .ci-icon-circle & {
+    font-size: 23px;
+    color: #C9C9C9;
+  }
+  .ci-icon-download & {
+    font-size: 23px;
+    color: #09BB07;
+  }
+  .ci-icon-info-circle & {
+    font-size: 23px;
+    color: #09BB07;
+  }
+  .ci-icon-safe-success & {
+    color: #09BB07;
+  }
+  .ci-icon-safe-warn & {
+    color: #FFBE00;
+  }
+  .ci-icon-cancel & {
+    color: #F43530;
+    font-size: 22px;
+  }
+  .ci-icon-search & {
+    color: #B2B2B2;
+    font-size: 14px;
+  }
+  .ci-icon-clear & {
+    color: #B2B2B2;
+    font-size: 14px;
+  }
+}
+:before {
+  .ci-icon-msg & {
+    font-size: 104px;
+    .ci-icon-warn & {
+      color: #F76260;
+    }
+  }
+}
+:before {
+  .ci-icon-safe & {
+    font-size: 104px;
+  }
+}

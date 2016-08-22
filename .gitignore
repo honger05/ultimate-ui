@@ -1,0 +1,14 @@
+.DS_Store
+node_modules/
+npm-debug.log
+selenium-debug.log
+test/unit/coverage
+test/e2e/reports
+dist-un/
+bower_components/
+origin/dev
+paco-ui/
+paco-sdk/
+src/constant/
+origin/dev
+checkout/

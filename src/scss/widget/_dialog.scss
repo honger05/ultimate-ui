@@ -1,0 +1,83 @@
+.ci-dialog {
+  position: fixed;
+  z-index: 5000;
+  width: 80%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #FAFAFC;
+  text-align: center;
+  border-radius: 5px;
+  overflow: hidden;
+  &-confirm & {
+    .ci-dialog-hd {
+      padding: 1.2em 20px 0.5em;
+    }
+    .ci-dialog-bd {
+      text-align: left;
+    }
+  }
+  &-hd {
+    padding: 1.2em 0 0.5em;
+  }
+  &-title {
+    font-weight: 400;
+    font-size: 17px;
+  }
+  &-bd {
+    padding: 0 20px;
+    font-size: 15px;
+    color: #888;
+    word-wrap: break-word;
+    word-break: break-all;
+  }
+}
+
+.ci-dialog-ft {
+  position: relative;
+  line-height: 42px;
+  margin-top: 20px;
+  font-size: 17px;
+  display: flex;
+  a {
+    display: block;
+    flex: 1;
+    color: #3CC51F;
+    text-decoration: none;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+    &:active {
+      background-color: #EEEEEE;
+    }
+  }
+  &:after {
+    content: " ";
+    @include setTopLine;
+  }
+  .ci-dialog-confirm & {
+    a {
+      position: relative;
+      &:after {
+        content: " ";
+        @include setLeftLine;
+      }
+      &:first-child {
+        &:after {
+          display: none;
+        }
+      }
+    }
+  }
+}
+.ci-btn-dialog {
+  &.default {
+    color: #353535;
+  }
+  &.primary {
+    color: $primary-color;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .ci-dialog {
+    width: 35%;
+  }
+}
