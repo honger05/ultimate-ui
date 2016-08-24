@@ -8,9 +8,9 @@
 
 <body>
 
-  <swiper :list="swiperList"></swiper>
-
   <progress :template="2"></progress>
+
+  <swiper :list="swiperList"></swiper>
 
   <search @result-click="resultClick"
     @on-change="getResult"
