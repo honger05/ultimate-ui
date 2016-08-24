@@ -12,3 +12,4 @@ paco-sdk/
 src/constant/
 origin/dev
 checkout/
+*.swp

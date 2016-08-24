@@ -10,6 +10,8 @@
 
   <swiper :list="swiperList"></swiper>
 
+  <progress :template="2"></progress>
+
   <search @result-click="resultClick"
     @on-change="getResult"
     :results="searchResults"
@@ -27,8 +29,6 @@
     <popup-picker title="PopupPicker" :data="areaData" :columns="3" :value.sync="popupPickerVal"></popup-picker>
     <address title="Address"></address>
   </group>
-
-  <progress :template="2"></progress>
 
   <flex>
     <flex-item>1</flex-item>
