@@ -19,7 +19,7 @@ import Search from './search'
 import Spinner from './spinner'
 import Progress from './progress'
 
-module.exports = {
+const nui = {
   Swiper,
   SwiperItem,
   Actionsheet,
@@ -40,3 +40,5 @@ module.exports = {
   Spinner,
   Progress
 }
+
+module.exports = nui
