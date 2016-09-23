@@ -13,3 +13,5 @@ src/constant/
 origin/dev
 checkout/
 *.swp
+aun-dist/
+aun-release/

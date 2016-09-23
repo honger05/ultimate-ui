@@ -1,0 +1,107 @@
+@mixin arrow ($borderWidth, $borderColor) {
+  @include setArrowWidth($borderWidth);
+  @include setArrowColor($borderColor);
+}
+
+@mixin setArrowColor($borderColor) {
+  &.arrow-t {
+    border-bottom-color: $borderColor;
+  }
+  &.arrow-r {
+    border-left-color: $borderColor;
+  }
+  &.arrow-b {
+    border-top-color: $borderColor;
+  }
+  &.arrow-l {
+    border-right-color: $borderColor;
+  }
+}
+
+@mixin setArrowWidth($borderWidth) {
+  border-width: $borderWidth;
+}
+
+@mixin arrow-t($c) {
+  border-top-width: 0;
+  border-bottom-color: $c;
+  border-bottom-style: solid;
+}
+
+@mixin arrow-r($c) {
+  border-right-width: 0;
+  border-left-color: $c;
+  border-left-style: solid;
+}
+
+@mixin arrow-b($c) {
+  border-bottom-width: 0;
+  border-top-color: $c;
+  border-top-style: solid;
+}
+
+@mixin arrow-l($c) {
+  border-left-width: 0;
+  border-right-color: $c;
+  border-right-style: solid;
+}
+
+@mixin setArrow($direction, $borderWidth, $borderColor) {
+  display: inline-block;
+  width: 0;
+  height: 0;
+  border-width: $borderWidth;
+  border-style: dashed;
+  border-color: transparent;
+
+  @if $direction == top {
+    @include arrow-t($borderColor);
+  } @else if $direction == right {
+    @include arrow-r($borderColor);
+  } @else if $direction == bottom {
+    @include arrow-b($borderColor);
+  } @else if $direction == left {
+    @include arrow-l($borderColor);
+  }
+}
+
+@mixin setArrowWidthWap($borderWidth) {
+  border-width: $borderWidth $borderWidth 0 0;
+}
+
+@mixin setArrowSizeWap($arrowsize) {
+  height: $arrowsize;
+  width: $arrowsize;
+}
+
+@mixin setArrowWap($direction, $arrowsize, $borderColor, $borderWidth) {
+  display: inline-block;
+  border-color: $borderColor;
+  border-style: solid;
+
+  @if $direction == top {
+    transform: rotate(-45deg);
+    @include setArrowSizeWap($arrowsize);
+    @include setArrowSizeWap($borderWidth);
+  } @else if $direction == right {
+    transform: rotate(45deg);
+    @include setArrowSizeWap($arrowsize);
+    @include setArrowWidthWap($borderWidth);
+    position: relative;
+    top: -2px;
+  } @else if $direction == down {
+    transform: rotate(135deg);
+    @include setArrowSizeWap($arrowsize);
+    @include setArrowWidthWap($borderWidth);
+    position: relative;
+    top: -2px;
+  } @else if $direction == left {
+    transform: rotate(-135deg);
+    @include setArrowSizeWap($arrowsize);
+    @include setArrowWidthWap($borderWidth);
+    position: relative;
+    top: -3px;
+  }
+}
+
+
