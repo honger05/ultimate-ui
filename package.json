@@ -10,10 +10,8 @@
     "unit": "karma start test/unit/karma.conf.js --single-run",
     "e2e": "node test/e2e/runner.js",
     "test": "npm run unit && npm run e2e",
-    "establish": "node build/establish.js",
-    "lint": "eslint --ext .js,.vue src test/unit/specs test/e2e/specs",
-    "xbuild": "mkdirp dist/styles && webpack --progress --hide-modules --colors --config build/webpack.npm.conf.js && rimraf dist/components && node build/build-components && node build/build-styles && node build/nano-css",
-    "xnpm": "webpack --progress --hide-modules --colors --config build/webpack.npm.conf.js"
+    "build": "node build/build.js",
+    "lint": "eslint --ext .js,.vue src test/unit/specs test/e2e/specs"
   },
   "dependencies": {
     "array-filter": "^1.0.0",
