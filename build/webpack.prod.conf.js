@@ -31,7 +31,8 @@ var conf = {
     new webpack.DefinePlugin({
       'process.env': {
         NODE_ENV: '"production"'
-      }
+      },
+      DEBUG: false
     }),
     new webpack.optimize.UglifyJsPlugin({
       compress: {
@@ -40,9 +41,8 @@ var conf = {
       }
     }),
     new webpack.optimize.CommonsChunkPlugin({
-      name: "common",
-      filename: utils.assetsPath('js/common.js'),
-      chunks: utils.route
+      name: ["common", "pub"],
+      minChunks: Infinity
     }),
     new webpack.optimize.OccurenceOrderPlugin(),
     // extract css into its own file
@@ -58,7 +58,14 @@ utils.entry.forEach(function(item) {
     filename: item + '.html',
     template: 'src/modules/'+ item +'/' + item + '.html',
     inject: 'body',
-    chunks: [ item ]
+    chunks: [ item, 'common', 'pub' ],
+    chunksSortMode: function (a, b) {
+      var index = {'pub': 3, 'common': 2}
+      index[item] = 1
+      var ai = index[a.origins[0].name]
+      var bi = index[b.origins[0].name]
+      return ai && bi ? bi - ai : -1
+    }
     // minify: {
     //   removeComments: true,
     //   collapseWhitespace: true,

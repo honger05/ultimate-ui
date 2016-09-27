@@ -9,7 +9,8 @@ var autoprefixer = require('autoprefixer')
 
 module.exports = {
   entry: {
-    common: ['utils']
+    common: ['utils'],
+    pub: ['vue']
   },
   output: {
     path: config.build.assetsRoot,
